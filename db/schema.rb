@@ -11,15 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130616002841) do
+ActiveRecord::Schema.define(:version => 20130616014712) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "yammer_token"
     t.string   "evernote_token"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "evernote_shard_id"
+    t.string   "evernote_uid"
+    t.string   "yammer_uid"
   end
 
 end

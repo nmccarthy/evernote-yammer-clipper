@@ -1,0 +1,8 @@
+<h1>Logged in as <%= current_user.name %></h1>
+
+<% if current_user.evernote_token == nil %>
+	<a href="/auth/evernote">Connect to Evernote</a>
+<% else %>
+	<p>Connected to Evernote</p>
+	<a href="/add_note">Add a Note</a>
+<% end %>

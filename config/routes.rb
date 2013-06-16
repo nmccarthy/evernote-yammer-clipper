@@ -1,7 +1,15 @@
 EvernoteArchiver::Application.routes.draw do
   resources :users
 
-  root :to => 'pages#login'
+  root :to => 'pages#home'
+  match '/login', to: 'pages#login'
+  match '/add_note', to: 'pages#add_note'
+  
+  #Omniauth routes
+  match 'auth/evernote/callback', to: 'sessions#connect_evernote'
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/login_failure')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
